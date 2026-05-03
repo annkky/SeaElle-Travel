@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SeaElle Travel — Ташкент</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="header">
+    <nav class="nav container">
+      <a href="#" class="logo">SeaElle <span>Travel</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">О нас</a></li>
+        <li><a href="#services">Услуги</a></li>
+        <li><a href="#destinations">Направления</a></li>
+        <li><a href="#vip">VIP</a></li>
+        <li><a href="#contact">Контакты</a></li>
+      </ul>
+      <a href="#contact" class="btn-primary nav-cta">Связаться</a>
+      <button class="burger" id="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#about" class="mob-link">О нас</a></li>
+      <li><a href="#services" class="mob-link">Услуги</a></li>
+      <li><a href="#destinations" class="mob-link">Направления</a></li>
+      <li><a href="#vip" class="mob-link">VIP</a></li>
+      <li><a href="#contact" class="mob-link">Контакты</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-overlay"></div>
+    <div class="hero-content container">
+      <p class="hero-eyebrow">Ташкент · Узбекистан</p>
+      <h1 class="hero-title">Путешествие,<br /><em>которое вдохновляет</em></h1>
+      <p class="hero-slogan">Мы продаём не путешествия — а состояние, которое вдохновляет</p>
+      <div class="hero-actions">
+        <a href="#services" class="btn-primary">Наши услуги</a>
+        <a href="#about" class="btn-outline">Узнать о нас</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span></span>
+      <p>Прокрутите вниз</p>
+    </div>
+  </section>
+
+  <!-- TAGLINE STRIP -->
+  <div class="strip">
+    <div class="strip-inner">
+      <span>Индивидуальный подход</span>
+      <span class="dot">✦</span>
+      <span>Частные самолёты</span>
+      <span class="dot">✦</span>
+      <span>VIP &amp; CIP залы</span>
+      <span class="dot">✦</span>
+      <span>Высококвалифицированные гиды</span>
+      <span class="dot">✦</span>
+      <span>5+ лет опыта</span>
+      <span class="dot">✦</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about section" id="about">
+    <div class="container about-grid">
+      <div class="about-image">
+        <div class="about-img-wrap">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" alt="Путешествие SeaElle" />
+          <div class="about-badge">
+            <span class="badge-num">5+</span>
+            <span class="badge-txt">лет в туризме</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-text">
+        <p class="section-eyebrow">О компании</p>
+        <h2 class="section-title">Отдых так,<br />как делали бы<br /><em>это для себя</em></h2>
+        <div class="about-story">
+          <p>SeaElle — это история, созданная не из продаж, а из личного опыта путешествий. Мы пришли в туризм не просто как специалисты, а как люди, которые сами прошли путь поиска идеального отдыха.</p>
+          <p>Мы видели разницу между «красиво на фото» и действительно качественным сервисом. Знаем, какие детали могут испортить поездку и что на самом деле делает её особенной.</p>
+          <p>Именно поэтому мы не работаем как классическое агентство. Мы не продаём туры. Мы подбираем отдых так, как делали бы это для себя — фильтруя, сравнивая и оставляя только те варианты, которые соответствуют уровню и ожиданиям наших клиентов.</p>
+          <p class="about-highlight">SeaElle — для тех, кто не хочет тратить время на выбор и не готов идти на компромиссы в качестве.</p>
+        </div>
+        <div class="director-card">
+          <div class="director-avatar">КС</div>
+          <div>
+            <p class="director-name">Скрылева Екатерина Сергеевна</p>
+            <p class="director-role">Директор · SeaElle Travel</p>
+            <p class="director-phone"><a href="tel:+998900220016">+998 90 022 00 16</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services section" id="services">
+    <div class="container">
+      <p class="section-eyebrow center">Что мы делаем</p>
+      <h2 class="section-title center">Наши <em>услуги</em></h2>
+      <p class="section-sub center">Полный спектр туристических услуг — от семейного отдыха до эксклюзивных VIP-туров</p>
+
+      <div class="services-grid">
+        <div class="service-card" data-aos="fade-up">
+          <div class="service-icon">✈</div>
+          <h3>Туры за рубеж</h3>
+          <p>Пляжный, горнолыжный, экзотический и культурный отдых по всему миру с тщательным отбором отелей и программ.</p>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-delay="100">
+          <div class="service-icon">🏛</div>
+          <h3>Событийный туризм</h3>
+          <p>Организация поездок на мировые события: Формула-1, Олимпиада, модные недели, фестивали и премьеры.</p>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-delay="200">
+          <div class="service-icon">🗺</div>
+          <h3>Индивидуальные экскурсии</h3>
+          <p>Частные экскурсии с высококвалифицированными гидами — глубокое погружение в культуру и историю страны.</p>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-delay="300">
+          <div class="service-icon">🏨</div>
+          <h3>Подбор отелей</h3>
+          <p>Отели от boutique до ultra-luxury. Подбираем по вашим критериям, с вниманием к каждой детали.</p>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-delay="400">
+          <div class="service-icon">🎫</div>
+          <h3>Визовая поддержка</h3>
+          <p>Полное сопровождение визового процесса: документы, запись, консультации и отслеживание статуса.</p>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-delay="500">
+          <div class="service-icon">🏥</div>
+          <h3>Медицинский туризм</h3>
+          <p>Организация поездок для лечения и оздоровления в лучших клиниках Европы, Азии и Ближнего Востока.</p>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-delay="600">
+          <div class="service-icon">🎓</div>
+          <h3>Образовательный туризм</h3>
+          <p>Языковые курсы, летние школы, университетские программы и академические поездки для учащихся.</p>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-delay="700">
+          <div class="service-icon">💼</div>
+          <h3>Деловой туризм</h3>
+          <p>Бизнес-перелёты, организация командировок, конференций и корпоративных поездок любого масштаба.</p>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-delay="800">
+          <div class="service-icon">🌿</div>
+          <h3>Экотуризм</h3>
+          <p>Путешествия в нетронутые уголки природы: сафари, треккинг, заповедники — с заботой об экологии.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESTINATIONS -->
+  <section class="destinations section" id="destinations">
+    <div class="container">
+      <p class="section-eyebrow center">Куда поехать</p>
+      <h2 class="section-title center">Популярные <em>направления</em></h2>
+      <p class="section-sub center">Нажмите «Подробнее», чтобы узнать о климате, лучшем сезоне и особенностях страны</p>
+
+      <div class="dest-grid">
+
+        <div class="dest-card">
+          <div class="dest-img-wrap">
+            <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=600&q=80" alt="Мальдивы" />
+          </div>
+          <div class="dest-info">
+            <h3>Мальдивы</h3>
+            <p>Частные виллы над водой, кристальный океан и полное уединение в тропическом раю.</p>
+            <button class="dest-more-btn" data-country="maldives">Подробнее о стране →</button>
+          </div>
+        </div>
+
+        <div class="dest-card">
+          <div class="dest-img-wrap">
+            <img src="https://images.unsplash.com/photo-1534445867742-43195f401b6c?w=600&q=80" alt="Италия" />
+          </div>
+          <div class="dest-info">
+            <h3>Италия</h3>
+            <p>Рим, Флоренция, Амальфи — великая история, высокая кухня и непередаваемая атмосфера.</p>
+            <button class="dest-more-btn" data-country="italy">Подробнее о стране →</button>
+          </div>
+        </div>
+
+        <div class="dest-card">
+          <div class="dest-img-wrap">
+            <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=600&q=80" alt="Таиланд" />
+          </div>
+          <div class="dest-info">
+            <h3>Таиланд</h3>
+            <p>Буддийские храмы, джунгли, острова — удивительное сочетание духовности и тропического отдыха.</p>
+            <button class="dest-more-btn" data-country="thailand">Подробнее о стране →</button>
+          </div>
+        </div>
+
+        <div class="dest-card">
+          <div class="dest-img-wrap">
+            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&q=80" alt="ОАЭ" />
+          </div>
+          <div class="dest-info">
+            <h3>ОАЭ · Дубай</h3>
+            <p>Роскошь на каждом шагу: небоскрёбы, пустыня, яхты и лучшие отели мира.</p>
+            <button class="dest-more-btn" data-country="uae">Подробнее о стране →</button>
+          </div>
+        </div>
+
+        <div class="dest-card">
+          <div class="dest-img-wrap">
+            <img src="https://images.unsplash.com/photo-1477601263568-180e2c6d046e?w=600&q=80" alt="Швейцария" />
+          </div>
+          <div class="dest-info">
+            <h3>Швейцария</h3>
+            <p>Альпийские курорты, Давос, Санкт-Мориц — горнолыжный отдых высшего класса.</p>
+            <button class="dest-more-btn" data-country="switzerland">Подробнее о стране →</button>
+          </div>
+        </div>
+
+        <div class="dest-card">
+          <div class="dest-img-wrap">
+            <img src="https://images.unsplash.com/photo-1492571350019-22de08371fd3?w=600&q=80" alt="Япония" />
+          </div>
+          <div class="dest-info">
+            <h3>Япония</h3>
+            <p>Токио, Киото, сезон сакуры — страна контрастов, традиций и ультрасовременного комфорта.</p>
+            <button class="dest-more-btn" data-country="japan">Подробнее о стране →</button>
+          </div>
+        </div>
+
+        <div class="dest-card">
+          <div class="dest-img-wrap">
+            <img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=600&q=80" alt="Сейшелы" />
+          </div>
+          <div class="dest-info">
+            <h3>Сейшелы</h3>
+            <p>Гранитные скалы, белоснежный песок, бирюзовый океан и полная тишина — рай без компромиссов.</p>
+            <button class="dest-more-btn" data-country="seychelles">Подробнее о стране →</button>
+          </div>
+        </div>
+
+        <div class="dest-card">
+          <div class="dest-img-wrap">
+            <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=600&q=80" alt="Танзания" />
+          </div>
+          <div class="dest-info">
+            <h3>Танзания</h3>
+            <p>Серенгети, Занзибар, Килиманджаро — сафари и океан в одном незабываемом путешествии.</p>
+            <button class="dest-more-btn" data-country="tanzania">Подробнее о стране →</button>
+          </div>
+        </div>
+
+        <div class="dest-card">
+          <div class="dest-img-wrap">
+            <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&q=80" alt="Греция" />
+          </div>
+          <div class="dest-info">
+            <h3>Греция</h3>
+            <p>Санторини, Миконос, Афины — белоснежные виллы над лазурным морем и закаты, завораживающие весь мир.</p>
+            <button class="dest-more-btn" data-country="greece">Подробнее о стране →</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COUNTRY MODAL -->
+  <div class="modal-overlay" id="countryModal" role="dialog" aria-modal="true" aria-label="Информация о стране">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose" aria-label="Закрыть">✕</button>
+      <div class="modal-inner">
+        <div class="modal-left">
+          <img src="" alt="" id="modalImg" />
+          <div class="modal-img-overlay">
+            <span id="modalCountryBadge"></span>
+          </div>
+        </div>
+        <div class="modal-right">
+          <p class="modal-eyebrow" id="modalEyebrow"></p>
+          <h2 class="modal-title" id="modalTitle"></h2>
+          <p class="modal-tagline" id="modalTagline"></p>
+          <p class="modal-desc" id="modalDesc"></p>
+          <div class="modal-facts" id="modalFacts"></div>
+          <a href="#contact" class="btn-primary modal-cta" id="modalCta">Узнать стоимость</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <section class="vip section" id="vip">
+    <div class="vip-bg"></div>
+    <div class="container vip-content">
+      <p class="section-eyebrow light">Эксклюзивно</p>
+      <h2 class="section-title light">VIP · Сервис<br /><em>без компромиссов</em></h2>
+      <p class="vip-desc">Для тех, кто ценит время и комфорт на каждом этапе путешествия</p>
+
+      <div class="vip-grid">
+        <div class="vip-card">
+          <div class="vip-icon">✈</div>
+          <h3>Частные самолёты</h3>
+          <p>Чартерные рейсы и аренда частных джетов. Ваш маршрут, ваше расписание, ваш уровень комфорта.</p>
+        </div>
+        <div class="vip-card">
+          <div class="vip-icon">🛋</div>
+          <h3>CIP &amp; VIP залы</h3>
+          <p>Доступ в эксклюзивные залы ожидания по всему миру. Полная приватность и сервис премиум-класса.</p>
+        </div>
+        <div class="vip-card">
+          <div class="vip-icon">🎩</div>
+          <h3>Персональный гид</h3>
+          <p>Высококвалифицированные частные гиды, говорящие на вашем языке и знающие страну изнутри.</p>
+        </div>
+        <div class="vip-card">
+          <div class="vip-icon">🌙</div>
+          <h3>Консьерж-сервис</h3>
+          <p>Персональный менеджер доступен 24/7 — бронирование ресторанов, трансферы, любые запросы.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why section">
+    <div class="container">
+      <p class="section-eyebrow center">Почему SeaElle</p>
+      <h2 class="section-title center">Разница в <em>деталях</em></h2>
+      <div class="why-grid">
+        <div class="why-item">
+          <span class="why-num">01</span>
+          <h3>Личный опыт</h3>
+          <p>Мы рекомендуем только то, что сами проверили и в чём уверены</p>
+        </div>
+        <div class="why-item">
+          <span class="why-num">02</span>
+          <h3>Никаких компромиссов</h3>
+          <p>Строгий отбор партнёров, отелей и программ по вашим стандартам</p>
+        </div>
+        <div class="why-item">
+          <span class="why-num">03</span>
+          <h3>Полное сопровождение</h3>
+          <p>От первого звонка до возвращения домой — мы рядом на каждом шагу</p>
+        </div>
+        <div class="why-item">
+          <span class="why-num">04</span>
+          <h3>Индивидуально</h3>
+          <p>Никаких шаблонных туров. Каждая поездка создаётся под вас лично</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="contact-info">
+        <p class="section-eyebrow">Свяжитесь с нами</p>
+        <h2 class="section-title">Начнём<br /><em>планировать</em><br />вашу поездку</h2>
+        <p class="contact-sub">Напишите нам или позвоните — расскажите, о каком путешествии мечтаете, и мы подберём идеальный вариант.</p>
+
+        <ul class="contact-list">
+          <li>
+            <span class="contact-ico">✉</span>
+            <div>
+              <p class="c-label">Email</p>
+              <a href="mailto:seaelletravel@gmail.com">seaelletravel@gmail.com</a>
+            </div>
+          </li>
+          <li>
+            <span class="contact-ico">📞</span>
+            <div>
+              <p class="c-label">Директор</p>
+              <a href="tel:+998900220016">+998 90 022 00 16</a>
+            </div>
+          </li>
+          <li>
+            <span class="contact-ico">🕐</span>
+            <div>
+              <p class="c-label">Часы работы</p>
+              <p>Пн–Вс: 10:00 — 19:00</p>
+            </div>
+          </li>
+          <li>
+            <span class="contact-ico">📍</span>
+            <div>
+              <p class="c-label">Офис</p>
+              <p>Ташкент, Узбекистан</p>
+            </div>
+          </li>
+        </ul>
+
+        <div class="social-links">
+          <a href="#" class="social-btn">Instagram</a>
+          <a href="#" class="social-btn">Telegram</a>
+          <a href="#" class="social-btn">WhatsApp</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <p class="logo">SeaElle <span>Travel</span></p>
+        <p class="footer-slogan">«Мы продаём не путешествия,<br />а состояние, которое вдохновляет»</p>
+        <p class="footer-city">Ташкент · Узбекистан</p>
+      </div>
+      <div class="footer-links">
+        <p class="footer-heading">Навигация</p>
+        <ul>
+          <li><a href="#about">О компании</a></li>
+          <li><a href="#services">Услуги</a></li>
+          <li><a href="#destinations">Направления</a></li>
+          <li><a href="#vip">VIP сервис</a></li>
+          <li><a href="#contact">Контакты</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <p class="footer-heading">Услуги</p>
+        <ul>
+          <li><a href="#services">Туры за рубеж</a></li>
+          <li><a href="#services">Событийный туризм</a></li>
+          <li><a href="#services">Экскурсии с гидом</a></li>
+          <li><a href="#vip">Частные самолёты</a></li>
+          <li><a href="#vip">VIP & CIP залы</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <p class="footer-heading">Контакты</p>
+        <p><a href="mailto:seaelletravel@gmail.com">seaelletravel@gmail.com</a></p>
+        <p><a href="tel:+998900220016">+998 90 022 00 16</a></p>
+        <p>Пн–Вс: 10:00–19:00</p>
+        <div class="footer-social">
+          <a href="#">IG</a>
+          <a href="#">TG</a>
+          <a href="#">WA</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>© 2026 SeaElle Travel. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
