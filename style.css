@@ -596,16 +596,14 @@ ul { list-style: none; }
   box-shadow: var(--shadow-lg);
 }
 
-.badge-num {
-  display: block;
-  font-family: var(--font-serif);
-  font-size: 2.4rem;
-  font-weight: 600;
-  line-height: 1;
+.badge-icon {
+  display: none;
 }
 
+.badge-num { display: none; }
+
 .badge-txt {
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 500;
   letter-spacing: 0.08em;
   opacity: 0.9;
