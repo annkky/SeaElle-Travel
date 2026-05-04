@@ -16,19 +16,44 @@ window.addEventListener('scroll', () => {
 // --- Burger menu ---
 const burger = document.getElementById('burger');
 const mobileMenu = document.getElementById('mobileMenu');
+const mmClose = document.getElementById('mmClose');
+
+function openMenu() {
+  mobileMenu.classList.add('open');
+  mobileMenu.setAttribute('aria-hidden', 'false');
+  burger.classList.add('is-open');
+  burger.setAttribute('aria-expanded', 'true');
+  burger.setAttribute('aria-label', 'Закрыть меню');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMenu() {
+  mobileMenu.classList.remove('open');
+  mobileMenu.setAttribute('aria-hidden', 'true');
+  burger.classList.remove('is-open');
+  burger.setAttribute('aria-expanded', 'false');
+  burger.setAttribute('aria-label', 'Открыть меню');
+  document.body.style.overflow = '';
+}
 
 burger.addEventListener('click', () => {
-  const isOpen = mobileMenu.classList.toggle('open');
-  burger.setAttribute('aria-expanded', isOpen);
-  document.body.style.overflow = isOpen ? 'hidden' : '';
+  burger.classList.contains('is-open') ? closeMenu() : openMenu();
+});
+
+mmClose.addEventListener('click', closeMenu);
+
+// Close on overlay click (outside mm-inner)
+mobileMenu.addEventListener('click', (e) => {
+  if (!e.target.closest('.mm-inner')) closeMenu();
+});
+
+// Close on Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenu();
 });
 
 document.querySelectorAll('.mob-link').forEach(link => {
-  link.addEventListener('click', () => {
-    mobileMenu.classList.remove('open');
-    burger.setAttribute('aria-expanded', false);
-    document.body.style.overflow = '';
-  });
+  link.addEventListener('click', closeMenu);
 });
 
 // --- Country modal ---

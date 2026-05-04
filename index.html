@@ -22,21 +22,33 @@
         <li><a href="#contact">Контакты</a></li>
       </ul>
       <a href="#contact" class="btn-primary nav-cta">Связаться</a>
-      <button class="burger" id="burger" aria-label="Меню">
-        <span></span><span></span><span></span>
+      <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
       </button>
     </nav>
   </header>
 
   <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobileMenu">
-    <ul>
-      <li><a href="#about" class="mob-link">О нас</a></li>
-      <li><a href="#services" class="mob-link">Услуги</a></li>
-      <li><a href="#destinations" class="mob-link">Направления</a></li>
-      <li><a href="#vip" class="mob-link">VIP</a></li>
-      <li><a href="#contact" class="mob-link">Контакты</a></li>
-    </ul>
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mm-inner">
+      <div class="mm-top">
+        <p class="mm-logo">SeaElle <span>Travel</span></p>
+        <button class="mm-close" id="mmClose" aria-label="Закрыть">✕</button>
+      </div>
+      <nav class="mm-nav">
+        <a href="#about" class="mob-link">О нас</a>
+        <a href="#services" class="mob-link">Услуги</a>
+        <a href="#destinations" class="mob-link">Направления</a>
+        <a href="#vip" class="mob-link">VIP</a>
+        <a href="#contact" class="mob-link">Контакты</a>
+      </nav>
+      <div class="mm-footer">
+        <p class="mm-slogan">«Мы продаём не путешествия —<br/>а состояние, которое вдохновляет»</p>
+        <a href="mailto:seaelletravel@gmail.com" class="mm-email">seaelletravel@gmail.com</a>
+      </div>
+    </div>
   </div>
 
   <!-- HERO -->
