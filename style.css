@@ -171,19 +171,18 @@ ul { list-style: none; }
 }
 
 .logo {
-  font-family: var(--font-serif);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--white);
-  transition: color var(--transition);
-  white-space: nowrap;
-  letter-spacing: 0.02em;
+  display: block;
+  transition: opacity var(--transition);
 }
 
-.logo span { color: var(--gold-light); }
+.logo-img {
+  height: 72px;
+  width: auto;
+  display: block;
+  border-radius: 6px;
+}
 
-#header.scrolled .logo { color: var(--text-dark); }
-#header.scrolled .logo span { color: var(--gold); }
+.logo span { display: none; }
 
 .nav-links {
   display: flex;
@@ -325,14 +324,16 @@ ul { list-style: none; }
 }
 
 .mm-logo {
-  font-family: var(--font-serif);
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--cream);
-  letter-spacing: 0.02em;
+  display: block;
 }
 
-.mm-logo span { color: var(--gold-light); }
+.mm-logo .logo-img {
+  height: 80px;
+  width: auto;
+  border-radius: 6px;
+}
+
+.mm-logo span { display: none; }
 
 .mm-close {
   background: rgba(255,255,255,0.07);
@@ -1233,10 +1234,14 @@ ul { list-style: none; }
 }
 
 .footer-brand .logo {
-  font-size: 1.5rem;
-  color: var(--cream);
-  margin-bottom: 16px;
   display: block;
+  margin-bottom: 16px;
+}
+
+.footer-brand .logo-img {
+  height: 100px;
+  width: auto;
+  border-radius: 6px;
 }
 
 .footer-slogan {
