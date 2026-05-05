@@ -31,7 +31,7 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
 
 body {
   font-family: var(--font-sans);
@@ -1160,6 +1160,14 @@ ul { list-style: none; }
 
 .social-links {
   display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.social-group {
+  display: flex;
+  flex-direction: column;
   gap: 12px;
 }
 
