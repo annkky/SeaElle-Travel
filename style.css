@@ -1424,7 +1424,11 @@ ul { list-style: none; }
 .mm-lang .lang-btn:hover    { color: var(--gold-light); }
 
 @media (max-width: 768px) {
-  .lang-switcher { display: none; }
+  .lang-switcher {
+    display: flex;
+    margin-left: auto;
+    margin-right: 12px;
+  }
 }
 
 /* =============================================
