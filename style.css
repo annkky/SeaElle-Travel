@@ -1367,3 +1367,75 @@ ul { list-style: none; }
   .hero-actions .btn-primary,
   .hero-actions .btn-outline { width: fit-content; }
 }
+
+/* =============================================
+   LANGUAGE SWITCHER
+   ============================================= */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+}
+
+.lang-sep {
+  font-size: 11px;
+  color: rgba(255,255,255,0.25);
+  margin: 0 6px;
+  line-height: 1;
+  user-select: none;
+}
+
+#header.scrolled .lang-sep { color: var(--sand-dark); }
+
+.lang-btn {
+  background: none;
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  cursor: pointer;
+  padding: 4px 0;
+  transition: color var(--transition);
+  line-height: 1;
+}
+
+.lang-btn.active { color: var(--white); }
+.lang-btn:hover  { color: var(--gold-light); }
+
+#header.scrolled .lang-btn         { color: var(--text-light); }
+#header.scrolled .lang-btn.active  { color: var(--text-dark); font-weight: 700; }
+#header.scrolled .lang-btn:hover   { color: var(--gold); }
+
+/* Mobile menu lang row */
+.mm-lang {
+  display: flex;
+  align-items: center;
+  padding: 16px 32px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.mm-lang .lang-sep { color: rgba(255,255,255,0.2); }
+
+.mm-lang .lang-btn          { color: rgba(255,255,255,0.35); font-size: 12px; }
+.mm-lang .lang-btn.active   { color: var(--gold-light); }
+.mm-lang .lang-btn:hover    { color: var(--gold-light); }
+
+@media (max-width: 768px) {
+  .lang-switcher { display: none; }
+}
+
+/* =============================================
+   SVG SERVICE ICONS (EN cards)
+   ============================================= */
+.service-svg-icon {
+  width: 30px;
+  height: 30px;
+  color: var(--gold);
+  margin-bottom: 20px;
+  display: block;
+  flex-shrink: 0;
+  stroke: currentColor;
+}

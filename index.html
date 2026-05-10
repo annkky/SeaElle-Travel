@@ -15,13 +15,18 @@
     <nav class="nav container">
       <a href="#" class="logo"><img src="images/seaelle_logo-1.png" alt="SeaElle Travel" class="logo-img" /></a>
       <ul class="nav-links">
-        <li><a href="#about">О нас</a></li>
-        <li><a href="#services">Услуги</a></li>
-        <li><a href="#destinations">Направления</a></li>
+        <li><a href="#about" data-i18n="navAbout">О нас</a></li>
+        <li><a href="#services" data-i18n="navServices">Услуги</a></li>
+        <li><a href="#destinations" data-i18n="navDestinations">Направления</a></li>
         <li><a href="#vip">VIP</a></li>
-        <li><a href="#contact">Контакты</a></li>
+        <li><a href="#contact" data-i18n="navContact">Контакты</a></li>
       </ul>
-      <a href="#contact" class="btn-primary nav-cta">Связаться</a>
+      <a href="#contact" class="btn-primary nav-cta" data-i18n="navCta">Связаться</a>
+      <div class="lang-switcher" id="desktopLangSwitcher">
+        <button class="lang-btn active" data-lang="ru">RU</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
       <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
         <span class="burger-line"></span>
         <span class="burger-line"></span>
@@ -37,15 +42,20 @@
         <p class="mm-logo"><img src="images/seaelle_logo-1.png" alt="SeaElle Travel" class="logo-img" /></p>
         <button class="mm-close" id="mmClose" aria-label="Закрыть">✕</button>
       </div>
+      <div class="mm-lang">
+        <button class="lang-btn active" data-lang="ru">RU</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
       <nav class="mm-nav">
-        <a href="#about" class="mob-link">О нас</a>
-        <a href="#services" class="mob-link">Услуги</a>
-        <a href="#destinations" class="mob-link">Направления</a>
+        <a href="#about" class="mob-link" data-i18n="navAbout">О нас</a>
+        <a href="#services" class="mob-link" data-i18n="navServices">Услуги</a>
+        <a href="#destinations" class="mob-link" data-i18n="navDestinations">Направления</a>
         <a href="#vip" class="mob-link">VIP</a>
-        <a href="#contact" class="mob-link">Контакты</a>
+        <a href="#contact" class="mob-link" data-i18n="navContact">Контакты</a>
       </nav>
       <div class="mm-footer">
-        <p class="mm-slogan">«Мы продаём не путешествия —<br/>а состояние, которое вдохновляет»</p>
+        <p class="mm-slogan" data-i18n-html="mmSlogan">«Мы продаём не путешествия —<br/>а состояние, которое вдохновляет»</p>
         <a href="mailto:seaelletravel@gmail.com" class="mm-email">seaelletravel@gmail.com</a>
       </div>
     </div>
@@ -55,22 +65,22 @@
   <section class="hero" id="home">
     <div class="hero-overlay"></div>
     <div class="hero-content container">
-      <p class="hero-eyebrow">Ташкент · Узбекистан</p>
-      <h1 class="hero-title">Путешествие,<br /><em>которое вдохновляет</em></h1>
-      <p class="hero-slogan">Мы продаём не путешествия — а состояние, которое вдохновляет</p>
+      <p class="hero-eyebrow" data-i18n="heroEyebrow">Ташкент · Узбекистан</p>
+      <h1 class="hero-title" data-i18n-html="heroTitle">Путешествие,<br /><em>которое вдохновляет</em></h1>
+      <p class="hero-slogan" data-i18n="heroSlogan">Мы продаём не путешествия — а состояние, которое вдохновляет</p>
       <div class="hero-actions">
-        <a href="#contact" class="btn-primary">Получить персональный подбор</a>
-        <a href="#vip" class="btn-outline">Запросить доступ</a>
+        <a href="#contact" class="btn-primary" data-i18n="heroBtnPrimary">Получить персональный подбор</a>
+        <a href="#vip" class="btn-outline" data-i18n="heroBtnOutline">Запросить доступ</a>
       </div>
     </div>
     <div class="hero-scroll">
       <span></span>
-      <p>Прокрутите вниз</p>
+      <p data-i18n="heroScroll">Прокрутите вниз</p>
     </div>
   </section>
 
   <!-- TAGLINE STRIP -->
-  <div class="strip">
+  <div class="strip" id="strip">
     <div class="strip-inner">
       <span>Индивидуальный подход</span>
       <span class="dot">✦</span>
@@ -99,13 +109,13 @@
         </div>
       </div>
       <div class="about-text">
-        <p class="section-eyebrow">О компании</p>
-        <h2 class="section-title">Отдых так,<br />как делали бы<br /><em>это для себя</em></h2>
+        <p class="section-eyebrow" data-i18n="aboutEyebrow">О компании</p>
+        <h2 class="section-title" data-i18n-html="aboutTitle">Отдых так, как делали бы<br /><em>это для себя</em></h2>
         <div class="about-story">
-          <p>SeaElle — это история, созданная не из продаж, а из личного опыта путешествий. Мы пришли в туризм не просто как специалисты, а как люди, которые сами прошли путь поиска идеального отдыха.</p>
-          <p>Мы видели разницу между «красиво на фото» и действительно качественным сервисом. Знаем, какие детали могут испортить поездку и что на самом деле делает её особенной.</p>
-          <p>Именно поэтому мы не работаем как классическое агентство. Мы не продаём туры. Мы подбираем отдых так, как делали бы это для себя — фильтруя, сравнивая и оставляя только те варианты, которые соответствуют уровню и ожиданиям наших клиентов.</p>
-          <p class="about-highlight">SeaElle — для тех, кто не хочет тратить время на выбор и не готов идти на компромиссы в качестве.</p>
+          <p data-i18n="aboutP1">SeaElle — это история, созданная не из продаж, а из личного опыта путешествий. Мы пришли в туризм не просто как специалисты, а как люди, которые сами прошли путь поиска идеального отдыха.</p>
+          <p data-i18n="aboutP2">Мы видели разницу между «красиво на фото» и действительно качественным сервисом. Знаем, какие детали могут испортить поездку и что на самом деле делает её особенной.</p>
+          <p data-i18n="aboutP3">Именно поэтому мы не работаем как классическое агентство. Мы не продаём туры. Мы подбираем отдых так, как делали бы это для себя — фильтруя, сравнивая и оставляя только те варианты, которые соответствуют уровню и ожиданиям наших клиентов.</p>
+          <p class="about-highlight" data-i18n="aboutHighlight">SeaElle — для тех, кто не хочет тратить время на выбор и не готов идти на компромиссы в качестве.</p>
         </div>
         <div class="director-card">
           <div class="director-avatar">КС</div>
@@ -122,55 +132,105 @@
   <!-- SERVICES -->
   <section class="services section" id="services">
     <div class="container">
-      <p class="section-eyebrow center">Что мы делаем</p>
-      <h2 class="section-title center">Наши <em>услуги</em></h2>
-      <p class="section-sub center">Полный спектр туристических услуг — от семейного отдыха до эксклюзивных VIP-туров</p>
+      <p class="section-eyebrow center" data-i18n="servicesEyebrow">Что мы делаем</p>
+      <h2 class="section-title center" data-i18n-html="servicesTitle">Наши <em>услуги</em></h2>
+      <p class="section-sub center" data-i18n="servicesSub">Полный спектр туристических услуг — от семейного отдыха до эксклюзивных VIP-туров</p>
 
       <div class="services-grid">
-        <div class="service-card" data-aos="fade-up">
-          <div class="service-icon">✈</div>
-          <h3>Private travel design</h3>
-          <p>Индивидуальные маршруты, созданные под ваш стиль жизни.</p>
+        <!-- RU CARDS -->
+        <div class="service-card" data-lang-show="ru" data-aos="fade-up">
+          <svg class="service-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+          </svg>
+          <h3>Private Travel Design</h3>
+          <p>Индивидуальные маршруты, созданные под ваш образ жизни, темп и личные предпочтения.</p>
         </div>
-        <div class="service-card" data-aos="fade-up" data-delay="100">
-          <div class="service-icon">🏛</div>
-          <h3>Access to global events</h3>
-          <p>Закрытый доступ к мировым событиям.</p>
+        <div class="service-card" data-lang-show="ru" data-aos="fade-up" data-delay="100">
+          <svg class="service-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          <h3>Global Event Access</h3>
+          <p>Приватный доступ к эксклюзивным международным событиям, мероприятиям и закрытым приглашениям.</p>
         </div>
-        <div class="service-card" data-aos="fade-up" data-delay="200">
-          <div class="service-icon">🗺</div>
-          <h3>Curated experiences</h3>
-          <p>Личный отбор впечатлений и приватные форматы.</p>
+        <div class="service-card" data-lang-show="ru" data-aos="fade-up" data-delay="200">
+          <svg class="service-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <h3>Curated Experiences</h3>
+          <p>Личный подбор ретритов, сафари, экспедиций и приватных форматов путешествий.</p>
         </div>
-        <div class="service-card" data-aos="fade-up" data-delay="300">
-          <div class="service-icon">🏨</div>
-          <h3>Подбор отелей</h3>
-          <p>Отели от boutique до ultra-luxury. Подбираем по вашим критериям, с вниманием к каждой детали.</p>
+        <div class="service-card" data-lang-show="ru" data-aos="fade-up" data-delay="300">
+          <svg class="service-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+          <h3>Luxury Hotel Selection</h3>
+          <p>Тщательный подбор отелей — от boutique-убежищ до всемирно известных luxury-резортов.</p>
         </div>
-        <div class="service-card" data-aos="fade-up" data-delay="400">
-          <div class="service-icon">🎫</div>
-          <h3>Визовая поддержка</h3>
-          <p>Полное сопровождение визового процесса: документы, запись, консультации и отслеживание статуса.</p>
+        <div class="service-card" data-lang-show="ru" data-aos="fade-up" data-delay="400">
+          <svg class="service-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+          </svg>
+          <h3>Corporate &amp; Executive Travel</h3>
+          <p>Организация деловых поездок, executive-маршрутов, конференций и корпоративного передвижения.</p>
         </div>
-        <div class="service-card" data-aos="fade-up" data-delay="500">
-          <div class="service-icon">🏥</div>
-          <h3>Медицинский туризм</h3>
-          <p>Организация поездок для лечения и оздоровления в лучших клиниках Европы, Азии и Ближнего Востока.</p>
+        <div class="service-card" data-lang-show="ru" data-aos="fade-up" data-delay="500">
+          <svg class="service-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 8C8 10 5.9 16.17 3.82 19.5"/><path d="M9.04 13.72C9.97 12.04 11.08 10.56 12.45 9.3"/>
+            <circle cx="19" cy="5" r="3"/><circle cx="5" cy="19" r="3"/>
+          </svg>
+          <h3>Eco &amp; Nature Experiences</h3>
+          <p>Ответственные путешествия: сафари, треккинг, природные экспедиции и иммерсивные маршруты.</p>
         </div>
-        <div class="service-card" data-aos="fade-up" data-delay="600">
-          <div class="service-icon">🎓</div>
-          <h3>Образовательный туризм</h3>
-          <p>Языковые курсы, летние школы, университетские программы и академические поездки для учащихся.</p>
+
+        <!-- EN CARDS (hidden by default) -->
+        <div class="service-card" data-lang-show="en" style="display:none" data-aos="fade-up">
+          <svg class="service-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+          </svg>
+          <h3>Private Travel Design</h3>
+          <p>Tailor-made journeys crafted around your lifestyle, pace, and personal preferences.</p>
         </div>
-        <div class="service-card" data-aos="fade-up" data-delay="700">
-          <div class="service-icon">💼</div>
-          <h3>Деловой туризм</h3>
-          <p>Бизнес-перелёты, организация командировок, конференций и корпоративных поездок любого масштаба.</p>
+        <div class="service-card" data-lang-show="en" style="display:none" data-aos="fade-up" data-delay="100">
+          <svg class="service-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          <h3>Global Event Access</h3>
+          <p>Private access to exclusive international events, experiences, and invitations.</p>
         </div>
-        <div class="service-card" data-aos="fade-up" data-delay="800">
-          <div class="service-icon">🌿</div>
-          <h3>Экотуризм</h3>
-          <p>Путешествия в нетронутые уголки природы: сафари, треккинг, заповедники — с заботой об экологии.</p>
+        <div class="service-card" data-lang-show="en" style="display:none" data-aos="fade-up" data-delay="200">
+          <svg class="service-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <h3>Curated Experiences</h3>
+          <p>Personally selected retreats, safaris, expeditions, and private travel formats.</p>
+        </div>
+        <div class="service-card" data-lang-show="en" style="display:none" data-aos="fade-up" data-delay="300">
+          <svg class="service-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+          <h3>Luxury Hotel Selection</h3>
+          <p>Carefully curated stays — from boutique hideaways to world-renowned luxury resorts.</p>
+        </div>
+        <div class="service-card" data-lang-show="en" style="display:none" data-aos="fade-up" data-delay="400">
+          <svg class="service-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+          </svg>
+          <h3>Corporate &amp; Executive Travel</h3>
+          <p>Business travel management, executive itineraries, conferences, and corporate mobility solutions.</p>
+        </div>
+        <div class="service-card" data-lang-show="en" style="display:none" data-aos="fade-up" data-delay="500">
+          <svg class="service-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 8C8 10 5.9 16.17 3.82 19.5"/><path d="M9.04 13.72C9.97 12.04 11.08 10.56 12.45 9.3"/>
+            <circle cx="19" cy="5" r="3"/><circle cx="5" cy="19" r="3"/>
+          </svg>
+          <h3>Eco &amp; Nature Experiences</h3>
+          <p>Responsible travel experiences including safaris, trekking, conservation journeys, and immersive nature escapes.</p>
         </div>
       </div>
     </div>
@@ -179,9 +239,9 @@
   <!-- DESTINATIONS -->
   <section class="destinations section" id="destinations">
     <div class="container">
-      <p class="section-eyebrow center">Куда поехать</p>
-      <h2 class="section-title center">Популярные <em>направления</em></h2>
-      <p class="section-sub center">Нажмите «Подробнее», чтобы узнать о климате, лучшем сезоне и особенностях страны</p>
+      <p class="section-eyebrow center" data-i18n="destinationsEyebrow">Куда поехать</p>
+      <h2 class="section-title center" data-i18n-html="destinationsTitle">Популярные <em>направления</em></h2>
+      <p class="section-sub center" data-i18n="destinationsSub">Нажмите «Подробнее», чтобы узнать о климате, лучшем сезоне и особенностях страны</p>
 
       <div class="dest-grid">
 
@@ -190,9 +250,9 @@
             <img src="images/maldives.jpg" alt="Мальдивы" />
           </div>
           <div class="dest-info">
-            <h3>Мальдивы</h3>
-            <p>Частные виллы над водой, кристальный океан и полное уединение в тропическом раю.</p>
-            <button class="dest-more-btn" data-country="maldives">Подробнее о стране →</button>
+            <h3 data-i18n="destMaldivesTitle">Мальдивы</h3>
+            <p data-i18n="destMaldivesDesc">Частные виллы над водой, кристальный океан и полное уединение в тропическом раю.</p>
+            <button class="dest-more-btn" data-country="maldives" data-i18n="destMoreBtn">Подробнее о стране →</button>
           </div>
         </div>
 
@@ -201,9 +261,9 @@
             <img src="images/italy.jpg" alt="Италия" />
           </div>
           <div class="dest-info">
-            <h3>Италия</h3>
-            <p>Рим, Флоренция, Амальфи — великая история, высокая кухня и непередаваемая атмосфера.</p>
-            <button class="dest-more-btn" data-country="italy">Подробнее о стране →</button>
+            <h3 data-i18n="destItalyTitle">Италия</h3>
+            <p data-i18n="destItalyDesc">Рим, Флоренция, Амальфи — великая история, высокая кухня и непередаваемая атмосфера.</p>
+            <button class="dest-more-btn" data-country="italy" data-i18n="destMoreBtn">Подробнее о стране →</button>
           </div>
         </div>
 
@@ -212,9 +272,9 @@
             <img src="images/thailand.jpg" alt="Таиланд" />
           </div>
           <div class="dest-info">
-            <h3>Таиланд</h3>
-            <p>Буддийские храмы, джунгли, острова — удивительное сочетание духовности и тропического отдыха.</p>
-            <button class="dest-more-btn" data-country="thailand">Подробнее о стране →</button>
+            <h3 data-i18n="destThailandTitle">Таиланд</h3>
+            <p data-i18n="destThailandDesc">Буддийские храмы, джунгли, острова — удивительное сочетание духовности и тропического отдыха.</p>
+            <button class="dest-more-btn" data-country="thailand" data-i18n="destMoreBtn">Подробнее о стране →</button>
           </div>
         </div>
 
@@ -223,9 +283,9 @@
             <img src="images/uae.jpg" alt="ОАЭ" />
           </div>
           <div class="dest-info">
-            <h3>ОАЭ · Дубай</h3>
-            <p>Роскошь на каждом шагу: небоскрёбы, пустыня, яхты и лучшие отели мира.</p>
-            <button class="dest-more-btn" data-country="uae">Подробнее о стране →</button>
+            <h3 data-i18n="destUaeTitle">ОАЭ · Дубай</h3>
+            <p data-i18n="destUaeDesc">Роскошь на каждом шагу: небоскрёбы, пустыня, яхты и лучшие отели мира.</p>
+            <button class="dest-more-btn" data-country="uae" data-i18n="destMoreBtn">Подробнее о стране →</button>
           </div>
         </div>
 
@@ -234,9 +294,9 @@
             <img src="images/switzerland.jpg" alt="Швейцария" />
           </div>
           <div class="dest-info">
-            <h3>Швейцария</h3>
-            <p>Альпийские курорты, Давос, Санкт-Мориц — горнолыжный отдых высшего класса.</p>
-            <button class="dest-more-btn" data-country="switzerland">Подробнее о стране →</button>
+            <h3 data-i18n="destSwitzerlandTitle">Швейцария</h3>
+            <p data-i18n="destSwitzerlandDesc">Альпийские курорты, Давос, Санкт-Мориц — горнолыжный отдых высшего класса.</p>
+            <button class="dest-more-btn" data-country="switzerland" data-i18n="destMoreBtn">Подробнее о стране →</button>
           </div>
         </div>
 
@@ -245,9 +305,9 @@
             <img src="images/japan.jpg" alt="Япония" />
           </div>
           <div class="dest-info">
-            <h3>Япония</h3>
-            <p>Токио, Киото, сезон сакуры — страна контрастов, традиций и ультрасовременного комфорта.</p>
-            <button class="dest-more-btn" data-country="japan">Подробнее о стране →</button>
+            <h3 data-i18n="destJapanTitle">Япония</h3>
+            <p data-i18n="destJapanDesc">Токио, Киото, сезон сакуры — страна контрастов, традиций и ультрасовременного комфорта.</p>
+            <button class="dest-more-btn" data-country="japan" data-i18n="destMoreBtn">Подробнее о стране →</button>
           </div>
         </div>
 
@@ -256,9 +316,9 @@
             <img src="images/seychelles.jpg" alt="Сейшелы" />
           </div>
           <div class="dest-info">
-            <h3>Сейшелы</h3>
-            <p>Гранитные скалы, белоснежный песок, бирюзовый океан и полная тишина — рай без компромиссов.</p>
-            <button class="dest-more-btn" data-country="seychelles">Подробнее о стране →</button>
+            <h3 data-i18n="destSeychellesTitle">Сейшелы</h3>
+            <p data-i18n="destSeychellesDesc">Гранитные скалы, белоснежный песок, бирюзовый океан и полная тишина — рай без компромиссов.</p>
+            <button class="dest-more-btn" data-country="seychelles" data-i18n="destMoreBtn">Подробнее о стране →</button>
           </div>
         </div>
 
@@ -267,9 +327,9 @@
             <img src="images/tanzania.jpg" alt="Танзания" />
           </div>
           <div class="dest-info">
-            <h3>Танзания</h3>
-            <p>Серенгети, Занзибар, Килиманджаро — сафари и океан в одном незабываемом путешествии.</p>
-            <button class="dest-more-btn" data-country="tanzania">Подробнее о стране →</button>
+            <h3 data-i18n="destTanzaniaTitle">Танзания</h3>
+            <p data-i18n="destTanzaniaDesc">Серенгети, Занзибар, Килиманджаро — сафари и океан в одном незабываемом путешествии.</p>
+            <button class="dest-more-btn" data-country="tanzania" data-i18n="destMoreBtn">Подробнее о стране →</button>
           </div>
         </div>
 
@@ -278,9 +338,9 @@
             <img src="images/greece.jpg" alt="Греция" />
           </div>
           <div class="dest-info">
-            <h3>Греция</h3>
-            <p>Санторини, Миконос, Афины — белоснежные виллы над лазурным морем и закаты, завораживающие весь мир.</p>
-            <button class="dest-more-btn" data-country="greece">Подробнее о стране →</button>
+            <h3 data-i18n="destGreeceTitle">Греция</h3>
+            <p data-i18n="destGreeceDesc">Санторини, Миконос, Афины — белоснежные виллы над лазурным морем и закаты, завораживающие весь мир.</p>
+            <button class="dest-more-btn" data-country="greece" data-i18n="destMoreBtn">Подробнее о стране →</button>
           </div>
         </div>
 
@@ -305,7 +365,7 @@
           <p class="modal-tagline" id="modalTagline"></p>
           <p class="modal-desc" id="modalDesc"></p>
           <div class="modal-facts" id="modalFacts"></div>
-          <a href="#contact" class="btn-primary modal-cta" id="modalCta">Узнать стоимость</a>
+          <a href="https://www.instagram.com/seaelle.travel/" target="_blank" rel="noopener" class="btn-primary modal-cta" id="modalCta" data-i18n="modalCta">Узнать стоимость</a>
         </div>
       </div>
     </div>
@@ -315,30 +375,30 @@
   <section class="vip section" id="vip">
     <div class="vip-bg"></div>
     <div class="container vip-content">
-      <p class="section-eyebrow light">Эксклюзивно</p>
-      <h2 class="section-title light">VIP · Сервис<br /><em>без компромиссов</em></h2>
-      <p class="vip-desc">Для тех, кто ценит время и комфорт на каждом этапе путешествия</p>
+      <p class="section-eyebrow light" data-i18n="vipEyebrow">Эксклюзивно</p>
+      <h2 class="section-title light" data-i18n-html="vipTitle">VIP · Сервис<br /><em>без компромиссов</em></h2>
+      <p class="vip-desc" data-i18n="vipDesc">Для тех, кто ценит время и комфорт на каждом этапе путешествия</p>
 
       <div class="vip-grid">
         <div class="vip-card">
           <div class="vip-icon">✈</div>
-          <h3>Частные самолёты</h3>
-          <p>Чартерные рейсы и аренда частных джетов. Ваш маршрут, ваше расписание, ваш уровень комфорта.</p>
+          <h3 data-i18n="vipCard1Title">Частные самолёты</h3>
+          <p data-i18n="vipCard1Text">Чартерные рейсы и аренда частных джетов. Ваш маршрут, ваше расписание, ваш уровень комфорта.</p>
         </div>
         <div class="vip-card">
-          <div class="vip-icon">🛋</div>
-          <h3>CIP &amp; VIP залы</h3>
-          <p>Доступ в эксклюзивные залы ожидания по всему миру. Полная приватность и сервис премиум-класса.</p>
+          <div class="vip-icon">◇</div>
+          <h3 data-i18n="vipCard2Title">CIP &amp; VIP залы</h3>
+          <p data-i18n="vipCard2Text">Доступ в эксклюзивные залы ожидания по всему миру. Полная приватность и сервис премиум-класса.</p>
         </div>
         <div class="vip-card">
-          <div class="vip-icon">🎩</div>
-          <h3>Персональный гид</h3>
-          <p>Высококвалифицированные частные гиды, говорящие на вашем языке и знающие страну изнутри.</p>
+          <div class="vip-icon">✦</div>
+          <h3 data-i18n="vipCard3Title">Персональный гид</h3>
+          <p data-i18n="vipCard3Text">Высококвалифицированные частные гиды, говорящие на вашем языке и знающие страну изнутри.</p>
         </div>
         <div class="vip-card">
-          <div class="vip-icon">🌙</div>
-          <h3>Консьерж-сервис</h3>
-          <p>Персональный менеджер доступен 24/7 — бронирование ресторанов, трансферы, любые запросы.</p>
+          <div class="vip-icon">◎</div>
+          <h3 data-i18n="vipCard4Title">Консьерж-сервис</h3>
+          <p data-i18n="vipCard4Text">Персональный менеджер доступен 24/7 — бронирование ресторанов, трансферы, любые запросы.</p>
         </div>
       </div>
     </div>
@@ -347,28 +407,28 @@
   <!-- WHY US -->
   <section class="why section">
     <div class="container">
-      <p class="section-eyebrow center">Почему SeaElle</p>
-      <h2 class="section-title center">Разница в <em>деталях</em></h2>
+      <p class="section-eyebrow center" data-i18n="whyEyebrow">Почему SeaElle</p>
+      <h2 class="section-title center" data-i18n-html="whyTitle">Разница в <em>деталях</em></h2>
       <div class="why-grid">
         <div class="why-item">
           <span class="why-num">01</span>
-          <h3>Личный опыт</h3>
-          <p>Мы рекомендуем только то, что сами проверили и в чём уверены</p>
+          <h3 data-i18n="whyItem1Title">Личный опыт</h3>
+          <p data-i18n="whyItem1Text">Мы рекомендуем только то, что сами проверили и в чём уверены</p>
         </div>
         <div class="why-item">
           <span class="why-num">02</span>
-          <h3>Никаких компромиссов</h3>
-          <p>Строгий отбор партнёров, отелей и программ по вашим стандартам</p>
+          <h3 data-i18n="whyItem2Title">Никаких компромиссов</h3>
+          <p data-i18n="whyItem2Text">Строгий отбор партнёров, отелей и программ по вашим стандартам</p>
         </div>
         <div class="why-item">
           <span class="why-num">03</span>
-          <h3>Полное сопровождение</h3>
-          <p>От первого звонка до возвращения домой — мы рядом на каждом шагу</p>
+          <h3 data-i18n="whyItem3Title">Полное сопровождение</h3>
+          <p data-i18n="whyItem3Text">От первого звонка до возвращения домой — мы рядом на каждом шагу</p>
         </div>
         <div class="why-item">
           <span class="why-num">04</span>
-          <h3>Индивидуально</h3>
-          <p>Никаких шаблонных туров. Каждая поездка создаётся под вас лично</p>
+          <h3 data-i18n="whyItem4Title">Индивидуально</h3>
+          <p data-i18n="whyItem4Text">Никаких шаблонных туров. Каждая поездка создаётся под вас лично</p>
         </div>
       </div>
     </div>
@@ -378,9 +438,9 @@
   <section class="contact section" id="contact">
     <div class="container">
       <div class="contact-info">
-        <p class="section-eyebrow">Свяжитесь с нами</p>
-        <h2 class="section-title">Начнём<br /><em>планировать</em><br />вашу поездку</h2>
-        <p class="contact-sub">Напишите нам или позвоните — расскажите, о каком путешествии мечтаете, и мы подберём идеальный вариант.</p>
+        <p class="section-eyebrow" data-i18n="contactEyebrow">Свяжитесь с нами</p>
+        <h2 class="section-title" data-i18n-html="contactTitle">Начнём<br /><em>планировать</em><br />вашу поездку</h2>
+        <p class="contact-sub" data-i18n="contactSub">Напишите нам или позвоните — расскажите, о каком путешествии мечтаете, и мы подберём идеальный вариант.</p>
 
         <ul class="contact-list">
           <li>
@@ -393,22 +453,22 @@
           <li>
             <span class="contact-ico">📞</span>
             <div>
-              <p class="c-label">Директор</p>
+              <p class="c-label" data-i18n="contactLabelDirector">Директор</p>
               <a href="tel:+998900220015">+998 90 022 00 15</a>
             </div>
           </li>
           <li>
             <span class="contact-ico">🕐</span>
             <div>
-              <p class="c-label">Часы работы</p>
-              <p>Пн–Вс: 10:00 — 19:00</p>
+              <p class="c-label" data-i18n="contactLabelHours">Часы работы</p>
+              <p data-i18n="contactLabelHoursVal">Пн–Вс: 10:00 — 19:00</p>
             </div>
           </li>
           <li>
             <span class="contact-ico">📍</span>
             <div>
-              <p class="c-label">Офис</p>
-              <p>Ташкент, Узбекистан</p>
+              <p class="c-label" data-i18n="contactLabelOffice">Офис</p>
+              <p data-i18n="contactLabelOfficeVal">Ташкент, Узбекистан</p>
             </div>
           </li>
         </ul>
@@ -433,21 +493,21 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <div class="logo"><img src="images/seaelle_logo-1.png" alt="SeaElle Travel" class="logo-img" /></div>
-        <p class="footer-slogan">«Мы продаём не путешествия,<br />а состояние, которое вдохновляет»</p>
-        <p class="footer-city">Ташкент · Узбекистан</p>
+        <p class="footer-slogan" data-i18n-html="footerSlogan">«Мы продаём не путешествия,<br />а состояние, которое вдохновляет»</p>
+        <p class="footer-city" data-i18n="footerCity">Ташкент · Узбекистан</p>
       </div>
       <div class="footer-links">
-        <p class="footer-heading">Навигация</p>
+        <p class="footer-heading" data-i18n="footerNavHeading">Навигация</p>
         <ul>
-          <li><a href="#about">О компании</a></li>
-          <li><a href="#services">Услуги</a></li>
-          <li><a href="#destinations">Направления</a></li>
-          <li><a href="#vip">VIP сервис</a></li>
-          <li><a href="#contact">Контакты</a></li>
+          <li><a href="#about" data-i18n="footerNavAbout">О компании</a></li>
+          <li><a href="#services" data-i18n="footerNavServices">Услуги</a></li>
+          <li><a href="#destinations" data-i18n="footerNavDestinations">Направления</a></li>
+          <li><a href="#vip" data-i18n="footerNavVip">VIP сервис</a></li>
+          <li><a href="#contact" data-i18n="footerNavContact">Контакты</a></li>
         </ul>
       </div>
       <div class="footer-links">
-        <p class="footer-heading">Услуги</p>
+        <p class="footer-heading" data-i18n="footerServicesHeading">Услуги</p>
         <ul>
           <li><a href="#services">Private travel design</a></li>
           <li><a href="#services">Access to global events</a></li>
@@ -457,7 +517,7 @@
         </ul>
       </div>
       <div class="footer-contact">
-        <p class="footer-heading">Контакты</p>
+        <p class="footer-heading" data-i18n="footerContactHeading">Контакты</p>
         <p><a href="mailto:seaelletravel@gmail.com">seaelletravel@gmail.com</a></p>
         <p><a href="tel:+998900220016">+998 90 022 00 16</a></p>
         <p>Пн–Вс: 10:00–19:00</p>
@@ -470,7 +530,7 @@
       </div>
     </div>
     <div class="footer-bottom container">
-      <p>© 2026 SeaElle Travel. Все права защищены.</p>
+      <p data-i18n="footerCopy">© 2026 SeaElle Travel. Все права защищены.</p>
     </div>
   </footer>
 
