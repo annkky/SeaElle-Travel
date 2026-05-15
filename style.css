@@ -1223,10 +1223,23 @@ ul { list-style: none; }
   margin-top: 32px;
 }
 
-.contact-pay-btn::before {
+.contact-pay-btn::before,
+.hero-pay-btn::before {
   content: '✦';
   font-size: 11px;
   letter-spacing: 0;
+}
+
+/* Payment button in hero — slightly stronger shadow over photo */
+.hero-pay-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 6px 24px rgba(201, 168, 76, 0.45);
+}
+
+.hero-pay-btn:hover {
+  box-shadow: 0 10px 32px rgba(201, 168, 76, 0.55);
 }
 
 
