@@ -43,7 +43,7 @@ if ($status === 'succeeded') {
     $body = "Получена новая оплата через OCTO Pay.\n\n"
           . "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
           . "Сумма:          {$amount} сум\n"
-          . "Назначение:     {$description}\n"
+          . "Договор:        {$description}\n"
           . "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
           . "ID транзакции:  {$transaction}\n"
           . "OCTO Pay ID:    {$octo_id}\n"

@@ -37,7 +37,7 @@ if ($amount === false || $amount <= 0) {
 
 // Обязательные поля
 if (empty($description) || mb_strlen($description) < 3) {
-    redirect_with_error('Укажите назначение платежа.');
+    redirect_with_error('Укажите номер договора.');
 }
 if (empty($client_name) || mb_strlen($client_name) < 2) {
     redirect_with_error('Укажите ваше имя.');

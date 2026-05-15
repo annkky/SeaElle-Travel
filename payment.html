@@ -390,18 +390,18 @@
         <!-- Форма -->
         <div class="pay-card__body">
           <form id="paymentForm" action="payment.php" method="POST" novalidate>
-            <!-- Назначение платежа -->
+            <!-- Номер договора -->
             <div class="form-group" id="group-description">
-              <label for="description">Назначение платежа</label>
+              <label for="description">Номер договора</label>
               <input
                 type="text"
                 id="description"
                 name="description"
-                placeholder="Например: тур на Мальдивы, Иванова А.Н."
+                placeholder="Например: SE-2026-00123"
                 maxlength="200"
                 required
               />
-              <span class="form-group__error">Укажите назначение платежа</span>
+              <span class="form-group__error">Укажите номер договора</span>
             </div>
 
             <!-- Сумма (только UZS) -->
