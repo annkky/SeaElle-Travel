@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Оплата — SeaElle Travel</title>
+  <meta name="description" content="Безопасная онлайн-оплата услуг туристического агентства SeaElle Travel" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== СТРАНИЦА ОПЛАТЫ — SeaElle Travel ===== */
+    .pay-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background:
+        linear-gradient(180deg, rgba(26,18,8,0.78), rgba(26,18,8,0.55)),
+        url('images/hero.jpg') center/cover no-repeat fixed;
+    }
+
+    .pay-page__inner {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 20px 80px;
+    }
+
+    /* ===== КАРТОЧКА ФОРМЫ ===== */
+    .pay-card {
+      background: var(--milk);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      width: 100%;
+      max-width: 520px;
+      overflow: hidden;
+      border: 1px solid var(--sand);
+    }
+
+    .pay-card__header {
+      position: relative;
+      background: var(--dark-bg);
+      padding: 36px 44px 32px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .pay-card__header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--gold-dark), var(--gold-light), var(--gold-dark));
+    }
+
+    .pay-back {
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px 8px 12px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 40px;
+      color: rgba(255,255,255,0.85);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: all var(--transition);
+      margin-bottom: 22px;
+    }
+
+    .pay-back:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--white);
+      transform: translateX(-3px);
+    }
+
+    .pay-card__logo {
+      margin-bottom: 18px;
+    }
+
+    .pay-card__logo img {
+      height: 64px;
+      width: auto;
+      border-radius: 4px;
+    }
+
+    .pay-card__eyebrow {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 10px;
+    }
+
+    .pay-card__title {
+      font-family: var(--font-serif);
+      font-size: 1.9rem;
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.2;
+    }
+
+    .pay-card__title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .pay-card__subtitle {
+      margin-top: 8px;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* ===== ТЕЛО ФОРМЫ ===== */
+    .pay-card__body {
+      padding: 40px 44px 44px;
+    }
+
+    .form-group {
+      margin-bottom: 22px;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      margin-bottom: 9px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1.5px solid var(--sand);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      background: var(--card-bg);
+      transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+      outline: none;
+      appearance: none;
+    }
+
+    .form-group input::placeholder {
+      color: var(--text-light);
+      opacity: 0.6;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.15);
+      background: var(--white);
+    }
+
+    /* Поле суммы с префиксом */
+    .amount-wrapper {
+      position: relative;
+    }
+
+    .amount-wrapper input {
+      padding-left: 64px;
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
+
+    .amount-wrapper__currency {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* Ошибка валидации */
+    .form-group__error {
+      display: none;
+      font-size: 0.78rem;
+      color: #b54a3a;
+      margin-top: 6px;
+      letter-spacing: 0.02em;
+    }
+
+    .form-group--error input,
+    .form-group--error select {
+      border-color: #c95846;
+      background: #fff7f4;
+    }
+
+    .form-group--error .form-group__error {
+      display: block;
+    }
+
+    /* Разделитель */
+    .pay-divider {
+      border: none;
+      border-top: 1px solid var(--sand);
+      margin: 28px 0 24px;
+    }
+
+    /* ===== КНОПКА ОПЛАТЫ — в стиле btn-primary SeaElle ===== */
+    .btn-pay {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      padding: 18px 28px;
+      background: var(--gold);
+      color: var(--white);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+    }
+
+    .btn-pay:hover {
+      background: var(--gold-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(201, 168, 76, 0.4);
+    }
+
+    .btn-pay:active {
+      transform: translateY(0);
+    }
+
+    .btn-pay:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .btn-pay svg { flex-shrink: 0; }
+
+    .btn-pay__spinner {
+      display: none;
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-top-color: var(--white);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+
+    .btn-pay.is-loading .btn-pay__spinner { display: block; }
+    .btn-pay.is-loading .btn-pay__icon { display: none; }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ===== ПЛАТЁЖНЫЕ СИСТЕМЫ ===== */
+    .pay-methods {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .pay-methods__label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      white-space: nowrap;
+    }
+
+    .pay-methods__logos {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pay-methods__logo {
+      height: 28px;
+      width: auto;
+      object-fit: contain;
+      border: 1px solid var(--sand);
+      border-radius: 4px;
+      padding: 3px 8px;
+      background: var(--white);
+    }
+
+    /* ===== БЕЗОПАСНОСТЬ ===== */
+    .pay-secure {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 18px;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: var(--text-light);
+    }
+
+    .pay-secure svg {
+      color: var(--gold-dark);
+      flex-shrink: 0;
+    }
+
+    /* ===== БЕЙДЖ OCTO ===== */
+    .octo-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 10px;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+
+    .octo-badge strong {
+      font-style: normal;
+      font-family: var(--font-sans);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--gold-dark);
+    }
+
+    /* ===== АДАПТИВ ===== */
+    @media (max-width: 560px) {
+      .pay-page__inner { padding: 90px 14px 50px; }
+      .pay-card__header { padding: 26px 24px 24px; }
+      .pay-card__body { padding: 28px 24px 32px; }
+      .pay-card__title { font-size: 1.55rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="pay-page">
+    <div class="pay-page__inner">
+      <div class="pay-card">
+        <!-- Шапка карточки -->
+        <div class="pay-card__header">
+          <a href="index.html" class="pay-back" aria-label="Вернуться на главную">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            На главную
+          </a>
+
+          <div class="pay-card__logo">
+            <img src="images/seaelle_logo-1.png" alt="SeaElle Travel" />
+          </div>
+          <p class="pay-card__eyebrow">SeaElle Travel</p>
+          <h1 class="pay-card__title">Оплата <em>услуг</em></h1>
+          <p class="pay-card__subtitle">Безопасная онлайн-оплата</p>
+        </div>
+
+        <!-- Форма -->
+        <div class="pay-card__body">
+          <form id="paymentForm" action="payment.php" method="POST" novalidate>
+            <!-- Назначение платежа -->
+            <div class="form-group" id="group-description">
+              <label for="description">Назначение платежа</label>
+              <input
+                type="text"
+                id="description"
+                name="description"
+                placeholder="Например: тур на Мальдивы, Иванова А.Н."
+                maxlength="200"
+                required
+              />
+              <span class="form-group__error">Укажите назначение платежа</span>
+            </div>
+
+            <!-- Сумма (только UZS) -->
+            <div class="form-group" id="group-amount">
+              <label for="amount">Сумма к оплате (сум)</label>
+              <div class="amount-wrapper">
+                <span class="amount-wrapper__currency">сум</span>
+                <input type="number" id="amount" name="amount" placeholder="0" min="1" step="1" required inputmode="numeric" />
+              </div>
+              <input type="hidden" name="currency" value="UZS" />
+              <span class="form-group__error">Введите корректную сумму (больше 0)</span>
+            </div>
+
+            <!-- Имя клиента -->
+            <div class="form-group" id="group-client_name">
+              <label for="client_name">Ваше имя</label>
+              <input type="text" id="client_name" name="client_name" placeholder="Иванов Иван Иванович" maxlength="100" required />
+              <span class="form-group__error">Укажите ваше имя</span>
+            </div>
+
+            <!-- Телефон клиента -->
+            <div class="form-group" id="group-client_phone">
+              <label for="client_phone">Номер телефона</label>
+              <input type="tel" id="client_phone" name="client_phone" placeholder="+998 90 000 00 00" maxlength="20" required />
+              <span class="form-group__error">Введите корректный номер телефона</span>
+            </div>
+
+            <hr class="pay-divider" />
+
+            <!-- Кнопка оплаты -->
+            <button type="submit" class="btn-pay" id="payBtn">
+              <svg class="btn-pay__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                <line x1="1" y1="10" x2="23" y2="10"></line>
+              </svg>
+              <span class="btn-pay__spinner"></span>
+              Перейти к оплате
+            </button>
+          </form>
+
+          <!-- Принимаемые карты -->
+          <div class="pay-methods">
+            <span class="pay-methods__label">Принимаем</span>
+            <div class="pay-methods__logos">
+              <img src="images/logo-uzcard.png" alt="UzCard" class="pay-methods__logo" onerror="this.style.display='none'" />
+              <img src="images/logo-humo.png" alt="Humo" class="pay-methods__logo" onerror="this.style.display='none'" />
+              <img src="images/logo-mastercard.png" alt="Mastercard" class="pay-methods__logo" onerror="this.style.display='none'" />
+            </div>
+          </div>
+
+          <!-- Безопасность -->
+          <div class="pay-secure">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            Данные карты защищены — оплата через OCTO Pay
+          </div>
+
+          <div class="octo-badge">Платёжный сервис: <strong>OCTO Pay</strong> · octo.uz</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    /* ===== ЛОГИКА ФОРМЫ ОПЛАТЫ ===== */
+    const form = document.getElementById('paymentForm');
+    const payBtn = document.getElementById('payBtn');
+
+    // Проверка одного поля
+    function validateField(input, groupId, checkFn) {
+      const group = document.getElementById(groupId);
+      const valid = checkFn(input.value.trim());
+      group.classList.toggle('form-group--error', !valid);
+      return valid;
+    }
+
+    // Правила валидации
+    const rules = {
+      description: (v) => v.length >= 3,
+      amount: (v) => parseFloat(v) > 0,
+      client_name: (v) => v.length >= 2,
+      client_phone: (v) => /^\+?[\d\s\-()]{7,20}$/.test(v),
+    };
+
+    // Живая валидация: blur — проверка, input — снять ошибку
+    ['description', 'amount', 'client_name', 'client_phone'].forEach((id) => {
+      const input = document.getElementById(id);
+      input.addEventListener('blur', () => {
+        validateField(input, 'group-' + id, rules[id]);
+      });
+      input.addEventListener('input', () => {
+        document.getElementById('group-' + id).classList.remove('form-group--error');
+      });
+    });
+
+    // Отправка формы
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      let allValid = true;
+      ['description', 'amount', 'client_name', 'client_phone'].forEach((id) => {
+        const input = document.getElementById(id);
+        const ok = validateField(input, 'group-' + id, rules[id]);
+        if (!ok) allValid = false;
+      });
+
+      if (!allValid) return;
+
+      // Блокируем кнопку, показываем спиннер и отправляем форму
+      payBtn.disabled = true;
+      payBtn.classList.add('is-loading');
+      form.submit();
+    });
+  </script>
+</body>
+</html>

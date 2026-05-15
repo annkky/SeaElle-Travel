@@ -1215,6 +1215,20 @@ ul { list-style: none; }
   color: var(--white);
 }
 
+/* Payment button under contact list */
+.contact-pay-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 32px;
+}
+
+.contact-pay-btn::before {
+  content: '✦';
+  font-size: 11px;
+  letter-spacing: 0;
+}
+
 
 
 /* =============================================
