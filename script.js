@@ -389,6 +389,7 @@ const i18n = {
     footerNavVip: 'VIP сервис',
     footerNavContact: 'Контакты',
     footerCopy: '© 2026 SeaElle Travel. Все права защищены.',
+    navPayment: 'Оплата',
   },
   en: {
     navAbout: 'About',
@@ -477,6 +478,7 @@ const i18n = {
     footerNavVip: 'VIP Service',
     footerNavContact: 'Contact',
     footerCopy: '© 2026 SeaElle Travel. All rights reserved.',
+    navPayment: 'Payment',
   }
 };
 
@@ -654,3 +656,131 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 
 // Initialize on load
 applyLang(currentLang);
+
+// =============================================
+//  CLICK PAYMENT INTEGRATION
+//  Все ключи хранятся в myconfig.php (уровнем выше) и используются
+//  только в PHP (pay-init.php, click-handler.php).
+//  Фронтенд ключей не содержит.
+// =============================================
+
+let currentPaymentMethod = 'click';
+
+const paymentModal    = document.getElementById('paymentModal');
+const paymentModalClose = document.getElementById('paymentModalClose');
+const paymentModalTitle = document.getElementById('paymentModalTitle');
+const paymentModalEyebrow = document.getElementById('paymentModalEyebrow');
+const paymentAmountInput = document.getElementById('paymentAmountInput');
+const paymentRefInput   = document.getElementById('paymentRefInput');
+const paymentFormNote   = document.getElementById('paymentFormNote');
+const paymentSubmitBtn  = document.getElementById('paymentSubmitBtn');
+
+const paymentTitles = {
+  click: { ru: 'Оплата через CLICK', en: 'Pay via CLICK' },
+  card:  { ru: 'Оплата с карты',     en: 'Pay by Card'  },
+};
+
+function openPaymentModal(method) {
+  currentPaymentMethod = method;
+  const lang = currentLang;
+  paymentModalEyebrow.textContent = lang === 'en' ? 'Online Payment' : 'Онлайн-оплата';
+  paymentModalTitle.textContent   = paymentTitles[method][lang];
+  paymentFormNote.textContent = '';
+  paymentAmountInput.value = '';
+  paymentRefInput.value = '';
+  paymentModal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => paymentAmountInput.focus(), 200);
+}
+
+function closePaymentModal() {
+  paymentModal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.payment-open-btn').forEach(btn => {
+  btn.addEventListener('click', () => openPaymentModal(btn.dataset.method));
+});
+
+paymentModalClose.addEventListener('click', closePaymentModal);
+
+paymentModal.addEventListener('click', (e) => {
+  if (e.target === paymentModal) closePaymentModal();
+});
+
+// Escape key is already handled globally — extend to close payment modal too
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && paymentModal.classList.contains('open')) closePaymentModal();
+});
+
+paymentSubmitBtn.addEventListener('click', () => {
+  const lang   = currentLang;
+  const amount = paymentAmountInput.value.trim();
+  const ref    = paymentRefInput.value.trim();
+
+  const errAmount = lang === 'en' ? 'Please enter the amount.'            : 'Введите сумму оплаты.';
+  const errRef    = lang === 'en' ? 'Please enter the booking reference.' : 'Введите номер заявки.';
+  const errMin    = lang === 'en' ? 'Minimum amount is 1,000 UZS.'        : 'Минимальная сумма — 1 000 сум.';
+  const errNet    = lang === 'en' ? 'Connection error. Please try again.' : 'Ошибка соединения. Попробуйте снова.';
+  const errSrv    = lang === 'en' ? 'Payment not configured on server.'   : 'Оплата не настроена на сервере.';
+
+  if (!amount) { paymentFormNote.textContent = errAmount; return; }
+  if (parseFloat(amount) < 1000) { paymentFormNote.textContent = errMin; return; }
+  if (!ref)    { paymentFormNote.textContent = errRef; return; }
+
+  paymentFormNote.textContent = '';
+  paymentSubmitBtn.disabled = true;
+
+  // Запрашиваем параметры у сервера — ключи остаются только в PHP
+  fetch('pay-init.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      method:     currentPaymentMethod,
+      amount:     parseFloat(amount),
+      ref:        ref,
+      return_url: window.location.href,
+    }),
+  })
+    .then(res => res.json())
+    .then(data => {
+      paymentSubmitBtn.disabled = false;
+
+      if (!data.success) {
+        paymentFormNote.textContent = data.error || errSrv;
+        return;
+      }
+
+      if (currentPaymentMethod === 'click') {
+        closePaymentModal();
+        window.open(data.url, '_blank', 'noopener,noreferrer');
+
+      } else {
+        // Оплата по карте — checkout.js overlay
+        if (typeof createPaymentRequest !== 'function') {
+          paymentFormNote.textContent = lang === 'en'
+            ? 'Card payment library failed to load. Please refresh the page.'
+            : 'Библиотека оплаты не загрузилась. Обновите страницу.';
+          return;
+        }
+        closePaymentModal();
+        createPaymentRequest(
+          {
+            service_id:        data.service_id,
+            merchant_id:       data.merchant_id,
+            amount:            data.amount,
+            transaction_param: data.transaction_param,
+          },
+          function (result) {
+            if (result && result.status === 2) {
+              console.log('CLICK payment completed successfully.');
+            }
+          }
+        );
+      }
+    })
+    .catch(() => {
+      paymentSubmitBtn.disabled = false;
+      paymentFormNote.textContent = errNet;
+    });
+});

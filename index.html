@@ -19,6 +19,7 @@
         <li><a href="#services" data-i18n="navServices">Услуги</a></li>
         <li><a href="#destinations" data-i18n="navDestinations">Направления</a></li>
         <li><a href="#vip">VIP</a></li>
+        <li><a href="#payment" data-i18n="navPayment">Оплата</a></li>
         <li><a href="#contact" data-i18n="navContact">Контакты</a></li>
       </ul>
       <a href="#contact" class="btn-primary nav-cta" data-i18n="navCta">Связаться</a>
@@ -52,6 +53,7 @@
         <a href="#services" class="mob-link" data-i18n="navServices">Услуги</a>
         <a href="#destinations" class="mob-link" data-i18n="navDestinations">Направления</a>
         <a href="#vip" class="mob-link">VIP</a>
+        <a href="#payment" class="mob-link" data-i18n="navPayment">Оплата</a>
         <a href="#contact" class="mob-link" data-i18n="navContact">Контакты</a>
       </nav>
       <div class="mm-footer">
@@ -465,6 +467,84 @@
     </div>
   </section>
 
+  <!-- PAYMENT -->
+  <section class="payment section" id="payment">
+    <div class="container">
+      <p class="section-eyebrow center">Онлайн-оплата</p>
+      <h2 class="section-title center">Оплатите <em>онлайн</em></h2>
+      <p class="section-sub center">Выберите удобный способ оплаты за ваше путешествие</p>
+
+      <div class="payment-options">
+
+        <!-- Card 1: CLICK Button -->
+        <div class="payment-card">
+          <div class="payment-card-logo click-brand">
+            <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+              <circle cx="22" cy="22" r="22" fill="#00C15B"/>
+              <path d="M13 22.5L19.5 29L31 15" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>CLICK</span>
+          </div>
+          <h3>Оплата через CLICK</h3>
+          <p>Для пользователей CLICK SuperApp — оплата через приложение по выставленному счёту. На странице оплаты также доступна оплата без регистрации.</p>
+          <ul class="payment-card-features">
+            <li>Оплата через CLICK SuperApp</li>
+            <li>Выставление счёта по номеру телефона</li>
+            <li>Оплата без регистрации на той же странице</li>
+          </ul>
+          <button class="btn-primary payment-open-btn" data-method="click">Оплатить через CLICK</button>
+        </div>
+
+        <!-- Card 2: Pay by Card -->
+        <div class="payment-card">
+          <div class="payment-card-logo card-brand">
+            <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+              <circle cx="22" cy="22" r="22" fill="#c9a84c"/>
+              <rect x="9" y="14" width="26" height="16" rx="3" stroke="#fff" stroke-width="1.8" fill="none"/>
+              <line x1="9" y1="20" x2="35" y2="20" stroke="#fff" stroke-width="1.8"/>
+              <rect x="13" y="24" width="6" height="3" rx="1" fill="#fff"/>
+            </svg>
+            <span>UzCard / HUMO</span>
+          </div>
+          <h3>Оплата с любой карты</h3>
+          <p>Любой пользователь может оплатить, введя номер карты и срок действия — даже без подключения к платёжным системам.</p>
+          <ul class="payment-card-features">
+            <li>UzCard и HUMO</li>
+            <li>Без регистрации в CLICK</li>
+            <li>Окно оплаты открывается прямо на сайте</li>
+          </ul>
+          <button class="btn-primary payment-open-btn" data-method="card">Оплата с карты</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PAYMENT MODAL -->
+  <div class="modal-overlay" id="paymentModal" role="dialog" aria-modal="true" aria-labelledby="paymentModalTitle">
+    <div class="modal-box payment-modal-box">
+      <button class="modal-close" id="paymentModalClose" aria-label="Закрыть">✕</button>
+      <div class="payment-modal-inner">
+        <p class="section-eyebrow" id="paymentModalEyebrow">Онлайн-оплата</p>
+        <h3 class="payment-modal-title" id="paymentModalTitle">Оплата</h3>
+        <p class="payment-modal-sub">Введите сумму и номер заявки, затем нажмите «Перейти к оплате».</p>
+
+        <div class="payment-form" id="paymentForm">
+          <div class="form-group">
+            <label for="paymentAmountInput">Сумма оплаты (сум)</label>
+            <input type="number" id="paymentAmountInput" placeholder="1000000" min="1000" step="1000" />
+          </div>
+          <div class="form-group">
+            <label for="paymentRefInput">Номер заявки / бронирования</label>
+            <input type="text" id="paymentRefInput" placeholder="SEA-001" />
+          </div>
+          <p class="payment-form-note" id="paymentFormNote"></p>
+          <button class="btn-primary payment-submit-btn" id="paymentSubmitBtn">Перейти к оплате →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- CONTACT -->
   <section class="contact section" id="contact">
     <div class="container">
@@ -565,6 +645,7 @@
     </div>
   </footer>
 
+  <script src="https://my.click.uz/pay/checkout.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
