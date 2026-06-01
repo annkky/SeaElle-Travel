@@ -335,8 +335,8 @@
       flex-shrink: 0;
     }
 
-    /* ===== БЕЙДЖ OCTO ===== */
-    .octo-badge {
+    /* ===== БЕЙДЖ CLICK ===== */
+    .click-badge {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -348,7 +348,7 @@
       color: var(--text-light);
     }
 
-    .octo-badge strong {
+    .click-badge strong {
       font-style: normal;
       font-family: var(--font-sans);
       font-weight: 600;
@@ -389,7 +389,7 @@
 
         <!-- Форма -->
         <div class="pay-card__body">
-          <form id="paymentForm" action="payment.php" method="POST" novalidate>
+          <form id="paymentForm" action="#" method="POST" novalidate>
             <!-- Номер договора -->
             <div class="form-group" id="group-description">
               <label for="description">Номер договора</label>
@@ -457,10 +457,10 @@
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
             </svg>
-            Данные карты защищены — оплата через OCTO Pay
+            Безопасная переадресация в CLICK
           </div>
 
-          <div class="octo-badge">Платёжный сервис: <strong>OCTO Pay</strong> · octo.uz</div>
+          <div class="click-badge">Платёжный сервис: <strong>CLICK</strong> · click.uz</div>
         </div>
       </div>
     </div>
@@ -511,10 +511,50 @@
 
       if (!allValid) return;
 
-      // Блокируем кнопку, показываем спиннер и отправляем форму
+      // Блокируем кнопку, показываем спиннер и отправляем запрос инициализации CLICK
       payBtn.disabled = true;
       payBtn.classList.add('is-loading');
-      form.submit();
+
+      const payload = {
+        method: 'click',
+        amount: Number(document.getElementById('amount').value),
+        ref: document.getElementById('description').value.trim(),
+        return_url: window.location.origin + window.location.pathname.replace(/[^/]*$/, '') + 'payment-success.html'
+      };
+
+      fetch('pay-init.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+        .then(async (res) => {
+          const raw = await res.text();
+
+          if (!res.ok) {
+            throw new Error('Сервер вернул ошибку ' + res.status + '. Проверьте запуск PHP и доступ к pay-init.php');
+          }
+
+          if (!raw || !raw.trim()) {
+            throw new Error('Пустой ответ от pay-init.php. Обычно это значит, что страница запущена через статический сервер (например, Live Server), который не выполняет PHP');
+          }
+
+          try {
+            return JSON.parse(raw);
+          } catch (e) {
+            throw new Error('Некорректный ответ от pay-init.php (ожидался JSON). Запустите сайт через PHP-сервер, а не через Live Server');
+          }
+        })
+        .then((data) => {
+          if (!data || !data.success || !data.url) {
+            throw new Error((data && data.error) ? data.error : 'Не удалось создать ссылку оплаты');
+          }
+          window.location.href = data.url;
+        })
+        .catch((err) => {
+          alert('Ошибка инициализации оплаты: ' + err.message);
+          payBtn.disabled = false;
+          payBtn.classList.remove('is-loading');
+        });
     });
   </script>
 </body>
